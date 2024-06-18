@@ -48,8 +48,15 @@ function sendName() {
     });
 }
 
+function sendChat() {
+    stompClient.publish({
+        destination: "/app/chat",
+        body: JSON.stringify({'name': $("#chat").val()})
+    });
+}
+
 function showGreeting(message) {
-    $("#greetings").append("<tr><td>" + message + "</td></tr>");
+    $("#greetings").append("<tr><td>User [" + "] : " + message + "</td></tr>");
 }
 
 $(function () {
@@ -57,5 +64,6 @@ $(function () {
     $( "#connect" ).click(() => connect());
     $( "#disconnect" ).click(() => disconnect());
     $( "#send" ).click(() => sendName());
+    $( "#sendChat" ).click(() => sendChat());
 });
 
