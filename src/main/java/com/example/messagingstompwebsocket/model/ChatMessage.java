@@ -5,6 +5,8 @@ public class ChatMessage {
     private String content;
     private String sender;
 
+    private String roomId;
+
     public enum MessageType {
         CHAT,
         JOIN,
@@ -34,5 +36,13 @@ public class ChatMessage {
 
     public void setSender(String sender) {
         this.sender = sender;
+    }
+
+    public String getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 }
